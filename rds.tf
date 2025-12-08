@@ -1,0 +1,23 @@
+module "Guacamole_RDS" {
+  source                          = "./Modules/rds/terraform-aws-rds-instance"
+  identifier                      = "${var.environment}-postgres-rds"
+  allocated_storage               = var.allocated_storage
+  storage_type                    = var.rds_storage_type
+  iops                            = var.iops
+  storage_encrypted               = true
+  kms_key_id                      = aws_kms_key.main.key_id
+  engine                          = "postgres"
+  engine_version                  = var.rds_engine_version
+  instance_class                  = var.rds_instance_class
+  username                        = "postgres"
+  manage_master_user_password     = true
+  master_user_secret_kms_key_id   = aws_kms_key.main.key_id
+  vpc_security_group_ids          = [module.db_sg.security_group_id]
+  tags                            = local.tags
+  db_subnet_group_name            = module.db_subnet_group_name.db_subnet_group_name
+  deletion_protection             = true
+  create_db_parameter_group       = false
+  create_db_option_group          = false
+  license_model                   = "postgresql-license"
+  db_subnet_group_use_name_prefix = false
+}

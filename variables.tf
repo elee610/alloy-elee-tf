@@ -64,3 +64,45 @@ variable "appName" {
   description = "Application name used for naming and tagging resources"
   type        = string
 }
+
+
+variable "rds_engine_version" {
+  description = "rds engine version"
+  type        = string
+  default     = ""
+}
+
+variable "rds_instance_class" {
+  description = "guac rds instance class"
+  type        = string
+  default     = ""
+}
+
+variable "rds_storage_type" {
+  description = "rds storage type"
+  type        = string
+  default     = ""
+}
+
+variable "allocated_storage" {
+  description = "rds allocated storage"
+  type        = number
+  default     = null
+}
+
+variable "iops" {
+  description = "rds iops"
+  type        = number
+  default     = null
+}
+
+variable "key_pair" {
+  description = "key pair name used for ssh"
+  type        = string
+}
+
+variable "alloy_standard_linux_ami" {
+  description = "ami of the alloy linux server image"
+  type        = string
+  default     = ""
+}
