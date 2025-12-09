@@ -27,7 +27,7 @@ another way we could also split the terraform repos up by is by aws components t
 
 
 
-some things to note and unclear
+- Some things to note and unclear
     - backend for statefiles? should be stored in a s3 and dynamodb
     - role for terraform? we need a user and a role to assume
     - what type of data store to use
