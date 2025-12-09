@@ -1,4 +1,4 @@
-module "Guacamole_RDS" {
+module "RDS" {
   source                          = "./Modules/rds/terraform-aws-rds-instance"
   identifier                      = "${var.environment}-postgres-rds"
   allocated_storage               = var.allocated_storage
