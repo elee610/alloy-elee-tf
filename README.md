@@ -7,8 +7,8 @@ another way we could also split the terraform repos up by is by aws components t
 
 
 - Compute infrastructure within AWS that an application could eventually run on.
-    - Spun up an ec2 server, made it a loop so if we need more instances in the future it is easier to spin up and much cleaner
-    - currently the security group is only restricted, we can open this up to what is needed such as SSH from a jumphost and such
+    - Spun up an ec2 server, made it a loop so if we need more instances in the future it is easier to spin up and much cleaner code
+    - currently the security group is restricted, we can open this up to what is needed such as SSH from a jumphost and such
     - try and to keep tagging consistent
     - encryption should be enabled for ebs volumes or any type of storage
     - unclear whether this instance needs internet access or need to be publicly exposed. so i gave it no public IP and put it in a private subnet (can be changed if needed)
