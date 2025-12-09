@@ -1,7 +1,7 @@
 # alloy-elee-tf
 alloy take home assessment 
 
-the terraform code is set up currently with one branch called "prod-us-east-1", ideally we would have a branches to stage and test the dode within a ci/cd pipeline but instruction did not state that. we would also have multiple regions within account, it would have multi branch per region 
+the terraform code is set up currently with three branches called "prod-us-east-1", "dev-us-east-1" and "staging-us-east-1". these three branches are used to test , pre-production and production use.
 
 another way we could also split the terraform repos up by is by aws components that dont need to be changed very often ( network conpenets) such as VPC, subnets, databases, kms and such where these services will cause major issues if deleted or modified by accident. the other types of aws services would be such as ec2, s3, security groups and etc where these should be changed often and are easily reversable if needed. 
 
@@ -28,13 +28,11 @@ another way we could also split the terraform repos up by is by aws components t
 
 
 some things to note and unclear
-    - backend for statefiles? 
-    - role for terraform?
+    - backend for statefiles? should be stored in a s3 and dynamodb
+    - role for terraform? we need a user and a role to assume
     - what type of data store to use
-    - what type of instance is required
-    - how deep into the code , do you want me to go into? 
-    - i would like to enable flowlogs for logging within vpc and send this to cloudwatch or s3 but was not stated but still enabled this
+    - i would like to enable flowlogs for logging within vpc and send this to cloudwatch or s3 but was not stated but still enabled this for vpc.
     - i created a kms key because we should have our data encrypted for both DB and EBS 
-    - key for ec2 instance
+    - key for ec2 instance for ssh access
     - does ec2 require ssm access or internet access?
     - added tagging for resources
